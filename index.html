@@ -46,36 +46,47 @@
             <p>With renewed hope and global interest, Wrexham A.F.C. aims to continue its upward journey through the football league system, while preserving its rich heritage. The team is setting its sights on further promotion, eyeing a return to its historic heights in English football.</p>
         </div>        
         <aside>
-            <h2>Honours</h2>
-            <h3>League</h3>
-            <h4>Third Division North / Third Division (level 3)</h4>
-            <p>Champions: 1977–78</p>
-            <p>Runners-up: 1932–33</p>
-            <h4>Fourth Division / Third Division / League Two (level 4)</h4>
-            <p>Runners-up: 1969–70, 1992–93, 2023–24</p>
-            <p>Promoted: 1961–62, 2002–03</p>
-            <h4>National League (level 5)</h4>
-            <p>Champions: 2022–23</p>
-            <p>Runners-up: 2011–12, 2021–22</p>
-            <h4>The Combination</h4>
-            <p>Champions: 1900–01, 1901–02, 1902–03, 1904–05</p>
-            <h4>Welsh Senior League</h4>
-            <p>Champions: 1894–95, 1895–96</p>
+            <button onclick="showPrevious()">Previous</button>
+            <button onclick="showNext()">Next</button>
             
-            <h3>Cup</h3>
-            <h4>Football League Trophy</h4>
-            <p>Winners: 2004–05</p>
-            <h4>FA Trophy</h4>
-            <p>Winners: 2012–13</p>
-            <p>Runners-up: 2014–15, 2021–22</p>
-            <h4>Football League North Cup</h4>
-            <p>Winners: 1943–44</p>
-            <h4>FAW Premier Cup</h4>
-            <p>Winners: 1997–98, 1999–2000, 2000–01, 2002–03, 2003–04 (Record)</p>
-            <h4>Welsh Cup</h4>
-            <p>Winners (23): 1877–78, 1882–83, 1892–93, 1896–97, 1902–03, 1904–05, 1908–09, 1909–10, 1910–11, 1913–14, 1914–15, 1920–21, 1923–24, 1924–25, 1930–31, 1956–57, 1957–58, 1959–60, 1971–72, 1974–75, 1977–78, 1985–86, 1994–95 (Record)</p>
-            <h4>Supporters Direct Cup</h4>
-            <p>Winners: 2015–16 (Shared)</p>   
+            <div id="para1">
+                <h2>Honours</h2>
+                <h3>League</h3>
+                <h4>Third Division North / Third Division (level 3)</h4>
+                <p>Champions: 1977–78</p>
+                <p>Runners-up: 1932–33</p>
+                <h4>Fourth Division / Third Division / League Two (level 4)</h4>
+                <p>Runners-up: 1969–70, 1992–93, 2023–24</p>
+                <p>Promoted: 1961–62, 2002–03</p>
+                <h4>National League (level 5)</h4>
+                <p>Champions: 2022–23</p>
+                <p>Runners-up: 2011–12, 2021–22</p>
+                <h4>The Combination</h4>
+                <p>Champions: 1900–01, 1901–02, 1902–03, 1904–05</p>
+                <h4>Welsh Senior League</h4>
+                <p>Champions: 1894–95, 1895–96</p>
+                
+                <h3>Cup</h3>
+                <h4>Football League Trophy</h4>
+                <p>Winners: 2004–05</p>
+                <h4>FA Trophy</h4>
+                <p>Winners: 2012–13</p>
+                <p>Runners-up: 2014–15, 2021–22</p>
+                <h4>Football League North Cup</h4>
+                <p>Winners: 1943–44</p>
+                <h4>FAW Premier Cup</h4>
+                <p>Winners: 1997–98, 1999–2000, 2000–01, 2002–03, 2003–04 (Record)</p>
+                <h4>Welsh Cup</h4>
+                <p>Winners (23): 1877–78, 1882–83, 1892–93, 1896–97, 1902–03, 1904–05, 1908–09, 1909–10, 1910–11, 1913–14, 1914–15, 1920–21, 1923–24, 1924–25, 1930–31, 1956–57, 1957–58, 1959–60, 1971–72, 1974–75, 1977–78, 1985–86, 1994–95 (Record)</p>
+                <h4>Supporters Direct Cup</h4>
+                <p>Winners: 2015–16 (Shared)</p>
+            </div>
+            <div id="para2" style="display: none;">
+                <p>Skib1</p>
+            </div>
+            <div id="para3" style="display: none;">
+                <p>Skib2</p>
+            </div>
         </aside>
     </div>
     <footer>
@@ -89,5 +100,27 @@
             <p>Address: 520 W Union Hills Dr Suite 101, Phoenix, AZ 85027</p>
         </div>
     </footer>
+    
+    <script>
+        const paragraphs = ["para1", "para2", "para3"];
+        let currentIndex = 0;
+        
+        function showParagraph(index) {
+          paragraphs.forEach(id => {
+            document.getElementById(id).style.display = "none";
+          });
+          document.getElementById(paragraphs[index]).style.display = "block";
+        }
+        
+        function showPrevious() {
+          currentIndex = (currentIndex === 0) ? paragraphs.length - 1 : currentIndex - 1;
+          showParagraph(currentIndex);
+        }
+        
+        function showNext() {
+          currentIndex = (currentIndex === paragraphs.length - 1) ? 0 : currentIndex + 1;
+          showParagraph(currentIndex);
+        }
+    </script>
 </body>
 </html>
